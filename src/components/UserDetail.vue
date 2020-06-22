@@ -4,6 +4,7 @@
     <p>Many Details</p>
     <!--      <p>Your Name : {{myName}}</p>-->
     <p>Your Name : {{switchName()}}</p>
+    <button @click="resetName()">Reset Name</button>
   </div>
 </template>
 
@@ -14,13 +15,17 @@
       // myName: String
       myName: {
         type: String,
-        required: true,
+        // required: true,
         default: "Sourav Roy"
       }
     },
     methods: {
       switchName() {
         return this.myName.split("").reverse().join("")
+      },
+      resetName(){
+        this.myName = "Sourav";
+        this.$emit('nameWasReset', this.myName)
       }
     }
   }
