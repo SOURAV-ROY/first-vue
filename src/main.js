@@ -5,7 +5,13 @@ import App from './App'
 import router from './router'
 // import Home from "./components/first/Home";
 
-export const eventBus = new Vue();
+export const eventBus = new Vue({
+  methods: {
+    changeAge(age) {
+      this.$emit('ageWasEdited', age)
+    }
+  }
+});
 
 Vue.config.productionTip = false;
 
