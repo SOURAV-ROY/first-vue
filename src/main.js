@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Home from "./components/first/Home";
+// import Home from "./components/first/Home";
+
+export const eventBus = new Vue();
 
 Vue.config.productionTip = false;
 
