@@ -1,32 +1,48 @@
-<!--<template>-->
-<!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div class="col-xs-12">-->
-<!--        <app-user></app-user>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</template>-->
-
 <template>
   <div class="container">
-    <div>hallo quota</div>
+    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
+    <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import User from './components/user/User.vue';
+  import QuoteGrid from './components/quote/QuoteGrid.vue';
+  import NewQuote from './components/quote/NewQuote.vue';
+  import Header from './components/quote/Header.vue';
 
   export default {
+    data: function () {
+      return {
+        quotes: [
+          'Just a Quote to see something'
+        ],
+        maxQuotes: 12
+      }
+    },
+    methods: {
+      newQuote(quote) {
+        if (this.quotes.length >= this.maxQuotes) {
+          return alert('Please delete Quotes first!');
+        }
+        this.quotes.push(quote);
+      },
+      deleteQuote(index) {
+        this.quotes.splice(index, 1);
+      }
+    },
     components: {
-      appUser: User
+      appQuoteGrid: QuoteGrid,
+      appNewQuote: NewQuote,
+      appHeader: Header
     }
   }
 </script>
 
 <style>
-  div.component {
-    border: 1px solid black;
-    padding: 30px;
-  }
 </style>
