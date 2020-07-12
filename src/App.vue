@@ -16,6 +16,8 @@
         <ol>
           <li v-for="fruit in filteredFruits">{{ fruit }}</li>
         </ol>
+        <hr>
+        <app-list></app-list>
       </div>
     </div>
   </div>
@@ -25,6 +27,7 @@
   import QuoteGrid from './components/quote/QuoteGrid.vue';
   import NewQuote from './components/quote/NewQuote.vue';
   import Header from './components/quote/Header.vue';
+  import List from "./components/list/List";
 
   export default {
     data: function () {
@@ -64,7 +67,8 @@
     components: {
       appQuoteGrid: QuoteGrid,
       appNewQuote: NewQuote,
-      appHeader: Header
+      appHeader: Header,
+      appList: List
     }
   }
 </script>
