@@ -28,8 +28,11 @@
   import NewQuote from './components/quote/NewQuote.vue';
   import Header from './components/quote/Header.vue';
   import List from "./components/list/List";
+  import {fruitMixin} from "./components/list/fruitMixin";
 
   export default {
+    mixins: [fruitMixin],
+    
     data: function () {
       return {
         quotes: [
@@ -37,8 +40,9 @@
         ],
         maxQuotes: 12,
         text: 'Hello Filter is UpperCase & LowerCase',
-        fruits: ['Apple', 'Banana', 'Orange', 'Lemon', 'Mango'],
-        filterText: ''
+
+        // fruits: ['Apple', 'Banana', 'Orange', 'Lemon', 'Mango'],
+        // filterText: ''
       }
     },
     filters: {
@@ -46,13 +50,13 @@
         return value.toUpperCase();
       }
     },
-    computed: {
-      filteredFruits() {
-        return this.fruits.filter((element) => {
-          return element.match(this.filterText);
-        });
-      }
-    },
+    // computed: {
+    //   filteredFruits() {
+    //     return this.fruits.filter((element) => {
+    //       return element.match(this.filterText);
+    //     });
+    //   }
+    // },
     methods: {
       newQuote(quote) {
         if (this.quotes.length >= this.maxQuotes) {
