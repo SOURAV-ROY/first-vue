@@ -12,6 +12,7 @@
       <div class="col-md-12 text-center">
         <h2> {{text | toUppercase | to-lowercase }} </h2>
         <hr>
+        <button @click="fruits.push('Lemon')">Add New Fruits</button>
         <input type="text" v-model="filterText">
         <ol>
           <li v-for="fruit in filteredFruits">{{ fruit }}</li>
