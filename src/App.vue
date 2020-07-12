@@ -8,6 +8,11 @@
         <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        {{text | toUppercase }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,7 +27,13 @@
         quotes: [
           'Just a Quote to see something'
         ],
-        maxQuotes: 12
+        maxQuotes: 12,
+        text: 'Hello Filter is uppercase'
+      }
+    },
+    filters:{
+      toUppercase(value){
+        return value.toUpperCase();
       }
     },
     methods: {

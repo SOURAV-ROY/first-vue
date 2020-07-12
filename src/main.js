@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 // import Home from "./components/first/Home";
 
+Vue.filter('to-lowercase');
+
 export const eventBus = new Vue({
   methods: {
     changeAge(age) {
