@@ -10,7 +10,12 @@
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        {{text | toUppercase }}
+        <h2> {{text | toUppercase | to-lowercase }} </h2>
+        <hr>
+        <input type="text" v-model="filterText">
+        <ol>
+          <li v-for="fruit in filteredFruits">{{ fruit }}</li>
+        </ol>
       </div>
     </div>
   </div>
@@ -28,12 +33,21 @@
           'Just a Quote to see something'
         ],
         maxQuotes: 12,
-        text: 'Hello Filter is uppercase'
+        text: 'Hello Filter is UpperCase & LowerCase',
+        fruits: ['Apple', 'Banana', 'Orange', 'Lemon', 'Mango'],
+        filterText: ''
       }
     },
-    filters:{
-      toUppercase(value){
+    filters: {
+      toUppercase(value) {
         return value.toUpperCase();
+      }
+    },
+    computed: {
+      filteredFruits() {
+        return this.fruits.filter((element) => {
+          return element.match(this.filterText);
+        });
       }
     },
     methods: {

@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 // import Home from "./components/first/Home";
 
-Vue.filter('to-lowercase');
+Vue.filter('to-lowercase', function (value) {
+  return value.toLowerCase();
+});
 
 export const eventBus = new Vue({
   methods: {
