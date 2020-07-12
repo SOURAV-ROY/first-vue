@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Second Filter</h1>
+    <h1>Second Filter And Mixins</h1>
     <input type="text" v-model="filterText">
     <ol>
       <li v-for="fruit in filteredFruits">{{ fruit }}</li>
@@ -12,7 +12,10 @@
   import {fruitMixin} from "./fruitMixin";
 
   export default {
-    mixins: [fruitMixin]
+    mixins: [fruitMixin],
+    created() {
+      console.log('Inside List Created Hook !!!')
+    }
   }
 </script>
 

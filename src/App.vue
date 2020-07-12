@@ -32,7 +32,7 @@
 
   export default {
     mixins: [fruitMixin],
-    
+
     data: function () {
       return {
         quotes: [
