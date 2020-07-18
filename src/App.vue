@@ -1,26 +1,31 @@
 <template>
   <div class="container">
-    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
-    <app-new-quote @quoteAdded="newQuote"></app-new-quote>
-    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
+    <!--    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>-->
+    <!--    <app-new-quote @quoteAdded="newQuote"></app-new-quote>-->
+    <!--    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>-->
+    <!--    <div class="row">-->
+    <!--      <div class="col-sm-12 text-center">-->
+    <!--        <div class="alert alert-info">Info: Click on a Quote to delete it!</div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    <div class="row">-->
+    <!--      <div class="col-md-12 text-center">-->
+    <!--        <h2> {{text | toUppercase | to-lowercase }} </h2>-->
+    <!--        <hr>-->
+    <!--        <button @click="fruits.push('MANGO')">Add New Fruits</button>-->
+    <!--        <input type="text" v-model="filterText">-->
+    <!--        <ol>-->
+    <!--          <li v-for="fruit in filteredFruits">{{ fruit }}</li>-->
+    <!--        </ol>-->
+    <!--        <hr>-->
+    <!--        <app-list></app-list>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <hr>
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
-      </div>
+      <app-animation></app-animation>
     </div>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h2> {{text | toUppercase | to-lowercase }} </h2>
-        <hr>
-        <button @click="fruits.push('Lemon')">Add New Fruits</button>
-        <input type="text" v-model="filterText">
-        <ol>
-          <li v-for="fruit in filteredFruits">{{ fruit }}</li>
-        </ol>
-        <hr>
-        <app-list></app-list>
-      </div>
-    </div>
+    <hr>
   </div>
 </template>
 
@@ -30,6 +35,7 @@
   import Header from './components/quote/Header.vue';
   import List from "./components/list/List";
   import {fruitMixin} from "./components/list/fruitMixin";
+  import Animation from "./AnimationsTransitions/Animation";
 
   export default {
     mixins: [fruitMixin],
@@ -73,7 +79,8 @@
       appQuoteGrid: QuoteGrid,
       appNewQuote: NewQuote,
       appHeader: Header,
-      appList: List
+      appList: List,
+      appAnimation: Animation
     }
   }
 </script>

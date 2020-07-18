@@ -1,3 +1,4 @@
+
 export const fruitMixin = {
   data: function () {
     return {
