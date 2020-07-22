@@ -27,12 +27,27 @@
     <!--    </div>-->
     <!--    <hr>-->
 
+    <!--    <div class="row">-->
+    <!--      <div class="col col-md-12 col-sm-12">-->
+    <!--        <transition name="flip" mode="out-in">-->
+    <!--          <component :is="mode" @answered="answered($event)" @confirmed="mode= 'app-question'"></component>-->
+    <!--        </transition>-->
+    <!--        <hr>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
     <div class="row">
-      <div class="col col-md-12 col-sm-12">
-        <transition name="flip" mode="out-in">
-          <component :is="mode" @answered="answered($event)" @confirmed="mode= 'app-question'"></component>
-        </transition>
-        <hr>
+      <div class="col-md-12">
+        <h1>HTTP Firebase</h1>
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" class="form-control" id="username" placeholder="UserName" v-model="user.username">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" placeholder="Email" v-model="user.email">
+        </div>
+        <button @click="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
 
@@ -63,7 +78,11 @@
 
         // fruits: ['Apple', 'Banana', 'Orange', 'Lemon', 'Mango'],
         // filterText: ''
-        mode: 'app-question'
+        mode: 'app-question',
+        user: {
+          username: '',
+          email: ''
+        }
       }
     },
     filters: {
@@ -79,6 +98,14 @@
     //   }
     // },
     methods: {
+      submit() {
+        this.$http.post('https://vuejs-http-start-2020.firebaseio.com/data.json', this.user)
+          .then(response => {
+            console.log(response)
+          }, error => {
+            console.log(error);
+          });
+      },
       newQuote(quote) {
         if (this.quotes.length >= this.maxQuotes) {
           return alert('Please delete Quotes first!');
