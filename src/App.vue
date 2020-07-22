@@ -26,12 +26,16 @@
     <!--      <app-animation></app-animation>-->
     <!--    </div>-->
     <!--    <hr>-->
+
     <div class="row">
       <div class="col col-md-12 col-sm-12">
-        <component :is="mode"></component>
-        <h1 class="text-center">The Super Quiz</h1>
+        <transition name="flip" mode="out-in">
+          <component :is="mode" @answered="answered($event)" @confirmed="mode= 'app-question'"></component>
+        </transition>
+        <hr>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -42,6 +46,7 @@
   import List from "./components/list/List";
   import {fruitMixin} from "./components/list/fruitMixin";
   import Animation from "./AnimationsTransitions/Animation";
+
   import Question from "./Quiz/Question";
   import Answer from "./Quiz/Answer";
 
@@ -82,6 +87,14 @@
       },
       deleteQuote(index) {
         this.quotes.splice(index, 1);
+      },
+      answered(isCorrect) {
+        if (isCorrect) {
+          this.mode = 'app-answer';
+        } else {
+          this.mode = 'app-question';
+          alert('Wrong , Try Again !!')
+        }
       }
     },
     components: {
@@ -97,4 +110,37 @@
 </script>
 
 <style>
+  .flip-enter {
+    /*transform: rotateY(0deg);*/
+  }
+
+  .flip-enter-active {
+    animation: flip-in 0.5s ease-out forwards;
+  }
+
+  .flip-leave {
+    /*transform: rotateY(0deg);*/
+  }
+
+  .flip-leave-active {
+    animation: flip-out 0.5s ease-out forwards;
+  }
+
+  @keyframes flip-out {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(90deg);
+    }
+  }
+
+  @keyframes flip-in {
+    from {
+      transform: rotateY(90deg);
+    }
+    to {
+      transform: rotateY(0deg);
+    }
+  }
 </style>

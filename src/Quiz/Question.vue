@@ -3,6 +3,7 @@
     <div class="panel-heading">
       <h3 class="panel-title text-center " style="border: 3px solid green; margin-top: 20px">{{ question }}</h3>
     </div>
+    <hr>
     <div class="panel-body">
       <div class="col-md-12 col-sm-6 text-center">
         <button class="btn btn-primary btn-lg" style="margin: 10px; border: 2px solid red" @click="onAnswer(btnData[0].correct)">{{ btnData[0].answer }}</button>
