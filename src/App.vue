@@ -47,7 +47,15 @@
           <label for="email">Email</label>
           <input type="text" class="form-control" id="email" placeholder="Email" v-model="user.email">
         </div>
-        <button @click="submit" class="btn btn-primary">Submit</button>
+        <button @click="submit" class="col col-md-12 btn btn-primary">Submit</button>
+        <hr>
+        <button @click="fetchData" class="col col-md-12 text-center btn btn-success">Fetch Data</button>
+        <br>
+        <br>
+        <ul class="list-group">
+          <li class="list-group-item text-center font-weight-bolder" v-for="u in users">{{u.username}} - {{u.email}}
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -82,7 +90,8 @@
         user: {
           username: '',
           email: ''
-        }
+        },
+        users: [],
       }
     },
     filters: {
@@ -105,6 +114,12 @@
           }, error => {
             console.log(error);
           });
+      },
+      fetchData() {
+        this.$http.get('https://vuejs-http-start-2020.firebaseio.com/data.json')
+          .then(response => {
+            return response.json();
+          }).then(data => console.log(data))
       },
       newQuote(quote) {
         if (this.quotes.length >= this.maxQuotes) {
