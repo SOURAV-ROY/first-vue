@@ -21,11 +21,17 @@
     <!--        <app-list></app-list>-->
     <!--      </div>-->
     <!--    </div>-->
-    <hr>
+    <!--    <hr>-->
+    <!--    <div class="row">-->
+    <!--      <app-animation></app-animation>-->
+    <!--    </div>-->
+    <!--    <hr>-->
     <div class="row">
-      <app-animation></app-animation>
+      <div class="col col-md-12 col-sm-12">
+        <component :is="mode"></component>
+        <h1 class="text-center">The Super Quiz</h1>
+      </div>
     </div>
-    <hr>
   </div>
 </template>
 
@@ -36,6 +42,8 @@
   import List from "./components/list/List";
   import {fruitMixin} from "./components/list/fruitMixin";
   import Animation from "./AnimationsTransitions/Animation";
+  import Question from "./Quiz/Question";
+  import Answer from "./Quiz/Answer";
 
   export default {
     mixins: [fruitMixin],
@@ -50,6 +58,7 @@
 
         // fruits: ['Apple', 'Banana', 'Orange', 'Lemon', 'Mango'],
         // filterText: ''
+        mode: 'app-question'
       }
     },
     filters: {
@@ -80,7 +89,9 @@
       appNewQuote: NewQuote,
       appHeader: Header,
       appList: List,
-      appAnimation: Animation
+      appAnimation: Animation,
+      appQuestion: Question,
+      appAnswer: Answer
     }
   }
 </script>

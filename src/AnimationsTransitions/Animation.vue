@@ -1,12 +1,24 @@
 <template>
   <div class="col-12 text-center">
     <button class="btn btn-info mt-2" @click="show = !show">Show Alert</button>
+
     <transition name="sou">
-      <div class="alert alert-primary mt-2" role="alert" v-if="show">
+      <div class="alert alert-primary mt-2" role="alert" v-show="show">
         A simple primary alert—check it out!
       </div>
     </transition>
+
     <transition name="slide">
+      <div class="alert alert-danger mt-2" role="alert" v-if="show">
+        A simple danger alert
+      </div>
+    </transition>
+
+    <transition
+      appear
+      enter-active-class="animated bounce"
+      leave-active-class="animated shake"
+    >
       <div class="alert alert-primary mt-2" role="alert" v-if="show">
         A simple primary alert—check it out!
       </div>
@@ -20,7 +32,7 @@
   export default {
     data() {
       return {
-        'show': false
+        'show': true
       };
     }
   }
@@ -43,6 +55,7 @@
     transition: opacity 2s;
     opacity: 0;
   }
+
   /*Slide Show By Animations*/
   .slide-enter {
     /*transform: translateY(20px);*/
