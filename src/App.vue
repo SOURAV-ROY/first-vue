@@ -116,7 +116,8 @@
         //   }, error => {
         //     console.log(error);
         //   });
-        this.resource.save({}, this.user);
+        // this.resource.save({}, this.user);
+        this.resource.saveAlt(this.user);
       },
       fetchData() {
         // this.$http.get('https://vuejs-http-start-2020.firebaseio.com/data.json')
@@ -152,7 +153,10 @@
       }
     },
     created() {
-      this.resource = this.$resource('data.json');
+      const customActions = {
+        saveAlt: {method: 'POST', url: 'alt.json'}
+      };
+      this.resource = this.$resource('data.json', {}, customActions);
     },
     components: {
       appQuoteGrid: QuoteGrid,
