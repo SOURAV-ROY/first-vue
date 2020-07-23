@@ -49,6 +49,8 @@
         </div>
         <button @click="submit" class="col col-md-12 btn btn-primary">Submit</button>
         <hr>
+        <input type="text" class="form-control" v-model="node">
+        <hr>
         <button @click="fetchData" class="col col-md-12 text-center btn btn-success">Fetch Data</button>
         <br>
         <br>
@@ -93,6 +95,7 @@
         },
         users: [],
         resource: {},
+        node: 'data',
       }
     },
     filters: {
@@ -121,7 +124,20 @@
       },
       fetchData() {
         // this.$http.get('https://vuejs-http-start-2020.firebaseio.com/data.json')
-        this.$http.get('data.json')
+        // this.$http.get('data.json')
+        // this.$http.get('alt.json')
+        //   .then(response => {
+        //     return response.json();
+        //   })
+        //   .then(data => {
+        //     const resultArray = [];
+        //
+        //     for (let key in data) {
+        //       resultArray.push(data[key]);
+        //     }
+        //     this.users = resultArray;
+        //   })
+        this.resource.getData({node: this.node})
           .then(response => {
             return response.json();
           })
@@ -132,7 +148,7 @@
               resultArray.push(data[key]);
             }
             this.users = resultArray;
-          })
+          });
       },
       newQuote(quote) {
         if (this.quotes.length >= this.maxQuotes) {
@@ -154,9 +170,11 @@
     },
     created() {
       const customActions = {
-        saveAlt: {method: 'POST', url: 'alt.json'}
+        saveAlt: {method: 'POST', url: 'alt.json'},
+        getData: {method: 'GET'}
       };
-      this.resource = this.$resource('data.json', {}, customActions);
+      // this.resource = this.$resource('data.json', {}, customActions);
+      this.resource = this.$resource('{node}.json', {}, customActions);
     },
     components: {
       appQuoteGrid: QuoteGrid,
