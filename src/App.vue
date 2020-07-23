@@ -41,11 +41,11 @@
         <h1>HTTP Firebase</h1>
         <div class="form-group">
           <label for="username">User Name</label>
-          <input type="text" class="form-control" id="username" placeholder="UserName" v-model="user.username">
+          <input type="text" class="form-control" id="username" placeholder="UserName" v-model="user.username" required>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" placeholder="Email" v-model="user.email">
+          <input type="text" class="form-control" id="email" placeholder="Email" v-model="user.email" required>
         </div>
         <button @click="submit" class="col col-md-12 btn btn-primary">Submit</button>
         <hr>
@@ -108,7 +108,8 @@
     // },
     methods: {
       submit() {
-        this.$http.post('https://vuejs-http-start-2020.firebaseio.com/data.json', this.user)
+        // this.$http.post('https://vuejs-http-start-2020.firebaseio.com/data.json', this.user)
+        this.$http.post('', this.user)
           .then(response => {
             console.log(response)
           }, error => {
@@ -116,7 +117,8 @@
           });
       },
       fetchData() {
-        this.$http.get('https://vuejs-http-start-2020.firebaseio.com/data.json')
+        // this.$http.get('https://vuejs-http-start-2020.firebaseio.com/data.json')
+        this.$http.get('')
           .then(response => {
             return response.json();
           })

@@ -7,6 +7,7 @@ import router from './router'
 // import Home from "./components/first/Home";
 
 Vue.use(VueResource);
+Vue.http.options.root= 'https://vuejs-http-start-2020.firebaseio.com/data.json';
 
 Vue.filter('to-lowercase', function (value) {
   return value.toLowerCase();
