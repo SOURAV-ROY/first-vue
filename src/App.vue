@@ -92,6 +92,7 @@
           email: ''
         },
         users: [],
+        resource: {},
       }
     },
     filters: {
@@ -109,16 +110,17 @@
     methods: {
       submit() {
         // this.$http.post('https://vuejs-http-start-2020.firebaseio.com/data.json', this.user)
-        this.$http.post('', this.user)
-          .then(response => {
-            console.log(response)
-          }, error => {
-            console.log(error);
-          });
+        // this.$http.post('data.json', this.user)
+        //   .then(response => {
+        //     console.log(response)
+        //   }, error => {
+        //     console.log(error);
+        //   });
+        this.resource.save({}, this.user);
       },
       fetchData() {
         // this.$http.get('https://vuejs-http-start-2020.firebaseio.com/data.json')
-        this.$http.get('')
+        this.$http.get('data.json')
           .then(response => {
             return response.json();
           })
@@ -148,6 +150,9 @@
           alert('Wrong , Try Again !!')
         }
       }
+    },
+    created() {
+      this.resource = this.$resource('data.json');
     },
     components: {
       appQuoteGrid: QuoteGrid,

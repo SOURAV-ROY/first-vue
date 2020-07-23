@@ -9,11 +9,11 @@ import response from "vue-resource/src/http/response";
 // import Home from "./components/first/Home";
 
 Vue.use(VueResource);
-Vue.http.options.root = 'https://vuejs-http-start-2020.firebaseio.com/data.json';
+Vue.http.options.root = 'https://vuejs-http-start-2020.firebaseio.com/';
 
 Vue.http.interceptors.push((request, next) => {
   console.log(request);
-  if (request.method == 'POST') {
+  if (request.method === 'POST') {
     request.method = 'PUT';
   }
   next(response => {
@@ -27,11 +27,11 @@ Vue.filter('to-lowercase', function (value) {
   return value.toLowerCase();
 });
 
-Vue.mixin({
-  created() {
-    console.log('Global Mixin - Created Hook ')
-  }
-});
+// Vue.mixin({
+//   created() {
+//     console.log('Global Mixin - Created Hook ')
+//   }
+// });
 
 export const eventBus = new Vue({
   methods: {
