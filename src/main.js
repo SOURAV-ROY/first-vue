@@ -4,10 +4,19 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 import App from './App'
 import router from './router'
+import request from "vue-resource/src/http/request";
 // import Home from "./components/first/Home";
 
 Vue.use(VueResource);
-Vue.http.options.root= 'https://vuejs-http-start-2020.firebaseio.com/data.json';
+Vue.http.options.root = 'https://vuejs-http-start-2020.firebaseio.com/data.json';
+
+Vue.http.interceptors.push((request, next) => {
+  console.log(request);
+  if (request.method == 'POST') {
+    request.method = 'PUT';
+  }
+  next();
+});
 
 Vue.filter('to-lowercase', function (value) {
   return value.toLowerCase();
