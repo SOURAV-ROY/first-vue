@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 import App from './App'
 import router from './router'
 import request from "vue-resource/src/http/request";
+import response from "vue-resource/src/http/response";
 // import Home from "./components/first/Home";
 
 Vue.use(VueResource);
@@ -15,7 +16,11 @@ Vue.http.interceptors.push((request, next) => {
   if (request.method == 'POST') {
     request.method = 'PUT';
   }
-  next();
+  next(response => {
+    response.json = () => {
+      return {messages: response.body}
+    }
+  });
 });
 
 Vue.filter('to-lowercase', function (value) {
