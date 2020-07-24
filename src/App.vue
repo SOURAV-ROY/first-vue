@@ -36,31 +36,35 @@
     <!--      </div>-->
     <!--    </div>-->
 
+    <!--    <div class="row">-->
+    <!--      <div class="col-md-12">-->
+    <!--        <h1>HTTP Firebase</h1>-->
+    <!--        <div class="form-group">-->
+    <!--          <label for="username">User Name</label>-->
+    <!--          <input type="text" class="form-control" id="username" placeholder="UserName" v-model="user.username" required>-->
+    <!--        </div>-->
+    <!--        <div class="form-group">-->
+    <!--          <label for="email">Email</label>-->
+    <!--          <input type="text" class="form-control" id="email" placeholder="Email" v-model="user.email" required>-->
+    <!--        </div>-->
+    <!--        <button @click="submit" class="col col-md-12 btn btn-primary">Submit</button>-->
+    <!--        <hr>-->
+    <!--        <input type="text" class="form-control" v-model="node">-->
+    <!--        <hr>-->
+    <!--        <button @click="fetchData" class="col col-md-12 text-center btn btn-success">Fetch Data</button>-->
+    <!--        <br>-->
+    <!--        <br>-->
+    <!--        <ul class="list-group">-->
+    <!--          <li class="list-group-item text-center font-weight-bolder" v-for="u in users">{{u.username}} - {{u.email}}-->
+    <!--          </li>-->
+    <!--        </ul>-->
+    <!--      </div>-->
+    <!--    </div>-->
     <div class="row">
       <div class="col-md-12">
-        <h1>HTTP Firebase</h1>
-        <div class="form-group">
-          <label for="username">User Name</label>
-          <input type="text" class="form-control" id="username" placeholder="UserName" v-model="user.username" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" placeholder="Email" v-model="user.email" required>
-        </div>
-        <button @click="submit" class="col col-md-12 btn btn-primary">Submit</button>
-        <hr>
-        <input type="text" class="form-control" v-model="node">
-        <hr>
-        <button @click="fetchData" class="col col-md-12 text-center btn btn-success">Fetch Data</button>
-        <br>
-        <br>
-        <ul class="list-group">
-          <li class="list-group-item text-center font-weight-bolder" v-for="u in users">{{u.username}} - {{u.email}}
-          </li>
-        </ul>
+<!--        <router-view></router-view>-->
       </div>
     </div>
-
   </div>
 </template>
 
