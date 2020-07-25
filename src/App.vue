@@ -64,6 +64,7 @@
       <div class="col-md-12">
         <h1 class="text-info">Routing</h1>
         <hr>
+        <app-header></app-header>
         <router-view></router-view>
       </div>
     </div>
@@ -73,13 +74,14 @@
 <script>
   import QuoteGrid from './components/quote/QuoteGrid.vue';
   import NewQuote from './components/quote/NewQuote.vue';
-  import Header from './components/quote/Header.vue';
+  // import Header from './components/quote/Header.vue';
   import List from "./components/list/List";
   import {fruitMixin} from "./components/list/fruitMixin";
   import Animation from "./AnimationsTransitions/Animation";
 
   import Question from "./Quiz/Question";
   import Answer from "./Quiz/Answer";
+  import Header from "./components/Header";
 
   export default {
     mixins: [fruitMixin],
