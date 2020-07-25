@@ -62,6 +62,8 @@
     <!--    </div>-->
     <div class="row">
       <div class="col-md-12">
+        <h1 class="text-info">Routing</h1>
+        <hr>
         <router-view></router-view>
       </div>
     </div>
