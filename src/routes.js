@@ -5,13 +5,13 @@ import UserEdit from "./components/newUser/UserEdit";
 import Home from "./components/Home";
 
 export const routes = [
-  {path: '', component: Home},
+  {path: '', component: Home, name: 'home'},
   // {path: '/user/:id', component: NewUser},
   {
     path: '/user', component: NewUser, children: [
       {path: '', component: UserStart},
       {path: ':id', component: UserDetail},
-      {path: ':id/edit', component: UserEdit},
+      {path: ':id/edit', component: UserEdit, name:'userEdit'},
     ]
   },
   // {path: '/newuser', component: UserStart},

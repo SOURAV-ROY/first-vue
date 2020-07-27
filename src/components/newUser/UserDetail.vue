@@ -3,10 +3,13 @@
     <h2>User Details</h2>
     <hr>
     <h3 class="text-success">User loaded ID: {{$route.params.id}}</h3>
+    <hr>
     <router-link
+      class="btn btn-outline-warning"
       tag="button"
-      :to="'/user/'+$route.params.id+'/edit'"
+      :to="{name:'userEdit', params: {id: $route.params.id}}"
     >Add New User
+      <!--      :to="'/user/'+$route.params.id+'/edit'"-->
     </router-link>
   </div>
 </template>
