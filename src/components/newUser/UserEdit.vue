@@ -1,5 +1,7 @@
 <template>
-
+<div>
+  <h3>User Edit Component</h3>
+</div>
 </template>
 
 <script>
