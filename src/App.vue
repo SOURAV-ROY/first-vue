@@ -64,8 +64,9 @@
       <div class="col-md-12">
         <h1 class="text-info">Routing</h1>
         <hr>
-        <app-header></app-header>
+        <router-view name="header-top"></router-view>
         <router-view></router-view>
+        <router-view name="header-bottom"></router-view>
       </div>
     </div>
   </div>
