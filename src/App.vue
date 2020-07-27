@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="border: 1px solid green">
     <!--    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>-->
     <!--    <app-new-quote @quoteAdded="newQuote"></app-new-quote>-->
     <!--    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>-->
