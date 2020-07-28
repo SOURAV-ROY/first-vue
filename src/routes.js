@@ -1,9 +1,33 @@
-import NewUser from "./components/newUser/User";
-import UserStart from "./components/newUser/UserStart";
-import UserDetail from "./components/newUser/UserDetail";
-import UserEdit from "./components/newUser/UserEdit";
+// import NewUser from "./components/newUser/User";
+// import UserStart from "./components/newUser/UserStart";
+// import UserDetail from "./components/newUser/UserDetail";
+// import UserEdit from "./components/newUser/UserEdit";
 import Home from "./components/Home";
 import Header from "./components/Header";
+
+const NewUser = resolve => {
+  require.ensure(['./components/newUser/User'], () => {
+    resolve(require('./components/newUser/User'));
+  }, 'user');
+};
+
+const UserStart = resolve => {
+  require.ensure(['./components/newUser/UserStart'], () => {
+    resolve(require('./components/newUser/UserStart'));
+  }, 'user');
+};
+
+const UserDetail = resolve => {
+  require.ensure(['./components/newUser/UserDetail'], () => {
+    resolve(require('./components/newUser/UserDetail'));
+  }, 'user');
+};
+
+const UserEdit = resolve => {
+  require.ensure(['./components/newUser/UserEdit'], () => {
+    resolve(require('./components/newUser/UserEdit'));
+  }, 'user');
+};
 
 export const routes = [
   // {path: '', component: Home, name: 'home'},
