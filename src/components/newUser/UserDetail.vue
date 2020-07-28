@@ -7,7 +7,7 @@
     <router-link
       class="btn btn-outline-warning"
       tag="button"
-      :to="{name:'userEdit', params: {id: $route.params.id}, query:{local: 'en', q: 100}}"
+      :to="link"
     >Add New User
       <!--      :to="'/user/'+$route.params.id+'/edit'"-->
     </router-link>
@@ -16,7 +16,21 @@
 
 <script>
   export default {
-    name: "UserDetail"
+    data() {
+      return {
+        link: {
+          name: 'userEdit',
+          params: {
+            id: this.$route.params.id
+          },
+          query: {
+            local: 'en',
+            q: 100
+          },
+          hash:'#data'
+        }
+      }
+    }
   }
 </script>
 
