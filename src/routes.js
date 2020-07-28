@@ -26,4 +26,6 @@ export const routes = [
     ]
   },
   // {path: '/newuser', component: UserStart},
+  {path: '/redirect-me', redirect: {name: 'home'}},
+  {path: '*', redirect: '/'},
 ];
