@@ -21,7 +21,12 @@ export const routes = [
       'header-bottom': Header
     }, children: [
       {path: '', component: UserStart},
-      {path: ':id', component: UserDetail},
+      {
+        path: ':id', component: UserDetail, beforeEnter: (to, from, next) => {
+          console.log("Before Enter Inside User Details router setup");
+          next();
+        }
+      },
       {path: ':id/edit', component: UserEdit, name: 'userEdit'},
     ]
   },

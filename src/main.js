@@ -22,6 +22,11 @@ const router = new VueRouter({
   }
 });
 
+router.beforeEach((to, from, next)=>{
+  console.log('global beforeEach');
+  next();
+});
+
 Vue.use(VueResource);
 Vue.http.options.root = 'https://vuejs-http-start-2020.firebaseio.com/';
 

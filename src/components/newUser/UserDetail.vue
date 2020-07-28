@@ -27,8 +27,16 @@
             local: 'en',
             q: 100
           },
-          hash:'#data'
+          hash: '#data'
         }
+      }
+    },
+    beforeRouteEnter(to, from, next) {
+      if (true) {
+        console.log("If True");
+        next()
+      } else {
+        next(false);
       }
     }
   }
