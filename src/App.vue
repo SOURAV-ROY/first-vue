@@ -61,7 +61,7 @@
     <!--      </div>-->
     <!--    </div>-->
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6 border border-success">
         <h1 class="text-info">Routing</h1>
         <hr>
         <router-view name="header-top"></router-view>
@@ -69,6 +69,14 @@
           <router-view></router-view>
         </transition>
         <router-view name="header-bottom"></router-view>
+      </div>
+      <div class="col-md-6 text-center border border-primary">
+        <h2>VUEX</h2>
+        <hr>
+        <app-counter @updated="counter += $event"></app-counter>
+        <hr>
+        <app-result :counter="counter"></app-result>
+        <hr>
       </div>
     </div>
   </div>
@@ -85,6 +93,9 @@
   import Question from "./Quiz/Question";
   import Answer from "./Quiz/Answer";
   import Header from "./components/Header";
+
+  import Counter from "./components/vuex/Counter";
+  import Result from "./components/vuex/Result";
 
   export default {
     mixins: [fruitMixin],
@@ -107,6 +118,7 @@
         users: [],
         resource: {},
         node: 'data',
+        counter: 0,
       }
     },
     filters: {
@@ -194,7 +206,9 @@
       appList: List,
       appAnimation: Animation,
       appQuestion: Question,
-      appAnswer: Answer
+      appAnswer: Answer,
+      appCounter: Counter,
+      appResult: Result,
     }
   }
 </script>
