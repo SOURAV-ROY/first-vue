@@ -81,6 +81,8 @@
         <hr>
         <app-result></app-result>
         <hr>
+        <another-result></another-result>
+        <hr>
       </div>
     </div>
   </div>
@@ -100,6 +102,7 @@
 
   import Counter from "./components/vuex/Counter";
   import Result from "./components/vuex/Result";
+  import AnotherResult from "./components/vuex/AnotherResult";
 
   export default {
     mixins: [fruitMixin],
@@ -204,6 +207,7 @@
       this.resource = this.$resource('{node}.json', {}, customActions);
     },
     components: {
+      AnotherResult,
       appQuoteGrid: QuoteGrid,
       appNewQuote: NewQuote,
       appHeader: Header,
@@ -213,6 +217,7 @@
       appAnswer: Answer,
       appCounter: Counter,
       appResult: Result,
+      appAnotherResult: AnotherResult,
     }
   }
 </script>
