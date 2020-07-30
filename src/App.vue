@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="border: 1px solid green">
+  <div class="container-fluid" style="border: 1px solid green">
     <!--    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>-->
     <!--    <app-new-quote @quoteAdded="newQuote"></app-new-quote>-->
     <!--    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>-->
@@ -62,7 +62,7 @@
     <!--    </div>-->
     <div class="row">
       <div class="col-md-6 border border-success">
-        <h1 class="text-info">Routing</h1>
+        <h1 class="text-info text-center">Routing</h1>
         <hr>
         <router-view name="header-top"></router-view>
         <transition name="flip" mode="out-in">
@@ -71,11 +71,15 @@
         <router-view name="header-bottom"></router-view>
       </div>
       <div class="col-md-6 text-center border border-primary">
-        <h2>VUEX</h2>
+        <h2>VueX</h2>
         <hr>
-        <app-counter @updated="counter += $event"></app-counter>
+        <!--        <app-counter @updated="counter += $event"></app-counter>-->
+        <!--        <hr>-->
+        <!--        <app-result :counter="counter"></app-result>-->
+        <!--        <hr>-->
+        <app-counter></app-counter>
         <hr>
-        <app-result :counter="counter"></app-result>
+        <app-result></app-result>
         <hr>
       </div>
     </div>
