@@ -85,7 +85,8 @@
         <hr>
         <another-result></another-result>
         <hr>
-        <input type="text" v-model="value" @input="updateValue">
+        <!--        <input type="text" v-model="value" @input="updateValue">-->
+        <input type="text" v-model="value">
         <p>{{value}}</p>
       </div>
     </div>
@@ -134,8 +135,13 @@
       }
     },
     computed: {
-      value() {
-        return this.$store.getters.value;
+      value: {
+        get() {
+          return this.$store.getters.value;
+        },
+        set(value) {
+          this.$store.dispatch('updateValue', value);
+        }
       }
     },
     filters: {
