@@ -79,6 +79,8 @@
         <!--        <hr>-->
         <app-counter></app-counter>
         <hr>
+        <app-another-counter></app-another-counter>
+        <hr>
         <app-result></app-result>
         <hr>
         <another-result></another-result>
@@ -101,6 +103,7 @@
   import Header from "./components/Header";
 
   import Counter from "./components/vuex/Counter";
+  import AnotherCounter from "./components/vuex/AnotherCounter";
   import Result from "./components/vuex/Result";
   import AnotherResult from "./components/vuex/AnotherResult";
 
@@ -216,6 +219,7 @@
       appQuestion: Question,
       appAnswer: Answer,
       appCounter: Counter,
+      appAnotherCounter: AnotherCounter,
       appResult: Result,
       appAnotherResult: AnotherResult,
     }

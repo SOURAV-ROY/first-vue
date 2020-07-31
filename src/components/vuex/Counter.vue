@@ -10,11 +10,13 @@
     methods: {
       increment() {
         // this.$emit('updated', 2);
-        this.$store.state.counter +=2 ;
+        // this.$store.state.counter +=2 ;
+        this.$store.commit('increment');
       },
       decrement() {
         // this.$emit('updated', -2);
-        this.$store.state.counter--;
+        // this.$store.state.counter--;
+        this.$store.commit('decrement');
       }
     }
   }
