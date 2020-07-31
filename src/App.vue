@@ -85,6 +85,8 @@
         <hr>
         <another-result></another-result>
         <hr>
+        <input type="text" v-model="value" @input="updateValue">
+        <p>{{value}}</p>
       </div>
     </div>
   </div>
@@ -131,6 +133,11 @@
         counter: 0,
       }
     },
+    computed: {
+      value() {
+        return this.$store.getters.value;
+      }
+    },
     filters: {
       toUppercase(value) {
         return value.toUpperCase();
@@ -144,6 +151,9 @@
     //   }
     // },
     methods: {
+      updateValue(event) {
+        this.$store.dispatch('updateValue', event.target.value)
+      },
       submit() {
         // this.$http.post('https://vuejs-http-start-2020.firebaseio.com/data.json', this.user)
         // this.$http.post('data.json', this.user)
