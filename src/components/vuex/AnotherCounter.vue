@@ -1,26 +1,18 @@
 <template>
   <div>
-    <button class="btn btn-outline-danger" @click="decrement">Decrement</button>
-    <button class="btn btn-outline-info" @click="increment(500)">Increment</button>
+    <button class="btn btn-warning" @click="asyncDecrement({by: 10, duration: 1000})">A Decrement</button>
+    <button class="btn btn-success" @click="asyncIncrement({by: 10, duration: 1000})">A Increment</button>
   </div>
 </template>
 
 <script>
-  import {mapMutations, mapActions} from 'vuex';
-
+  import {mapActions} from 'vuex';
   export default {
     methods: {
-      ...mapMutations([
-        'increment',
-        'decrement'
-      ]),
       ...mapActions([
-        'increment',
-        'decrement'
+        'asyncIncrement',
+        'asyncDecrement'
       ]),
-      increment(by){
-        this.$store.dispatch('increment',by);
-      },
       // increment() {
       //   // this.$emit('updated', 2);
       //   // this.$store.state.counter +=2 ;
