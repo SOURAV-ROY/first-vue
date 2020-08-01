@@ -85,9 +85,11 @@
         <hr>
         <another-result></another-result>
         <hr>
+        <p>Instance Number Change</p>
         <!--        <input type="text" v-model="value" @input="updateValue">-->
-        <input type="text" v-model="value">
+        <input type="number" v-model="value">
         <p>{{value}}</p>
+        <hr>
       </div>
     </div>
   </div>
